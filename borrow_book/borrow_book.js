@@ -18,7 +18,7 @@ function borrowBook(bookTitle, availableBooks) {
         availableBooks.splice(index, 1);
         return `You have borrowed '${bookTitle}'.`;
     } else {
-        // Book is not available
+        // here i mean book is not available
         return `Sorry, '${bookTitle}' is not available.`;
     }
 }
