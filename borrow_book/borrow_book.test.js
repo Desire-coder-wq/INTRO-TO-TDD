@@ -30,3 +30,16 @@ test('returns correct message when borrowing from an empty list', () => {
   expect(result).toBe("Sorry, 'Twist of Fate' is not available.");
   expect(books).toEqual([]);
 });
+
+
+
+test('returns error if book title is not a string', () => {
+  const books = ["OliverTwist", "The return of mogofu", "Last night in the city"];
+  const result = borrowBook(123, books);
+  expect(result).toBe("Invalid input: book title must be a string.");
+});
+
+test('returns error if availableBooks is not an array', () => {
+  const result = borrowBook("OliverTwist", "Not an array");
+  expect(result).toBe("Invalid input: availableBooks must be an array.");
+});
