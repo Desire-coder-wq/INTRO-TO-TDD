@@ -110,7 +110,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 4. Number matchers - toBeGreaterThan
+ 
   describe("10. toBeGreaterThan - Greater Than", () => {
     test("PASS: sum(2, 3) is greater than 4", () => {
       expect(utils.sum(2, 3)).toBeGreaterThan(4);
@@ -121,7 +121,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 4. Number matchers - toBeGreaterThanOrEqual
+
   describe("11. toBeGreaterThanOrEqual - Greater Than or Equal", () => {
     test("PASS: sum(2, 3) is greater than or equal to 5", () => {
       expect(utils.sum(2, 3)).toBeGreaterThanOrEqual(5);
@@ -132,7 +132,6 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 4. Number matchers - toBeLessThan
   describe("12. toBeLessThan - Less Than", () => {
     test("PASS: sum(1, 1) is less than 3", () => {
       expect(utils.sum(1, 1)).toBeLessThan(3);
@@ -143,7 +142,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 4. Number matchers - toBeLessThanOrEqual
+
   describe("13. toBeLessThanOrEqual - Less Than or Equal", () => {
     test("PASS: approximateDivision(10, 2) is less than or equal to 5", () => {
       expect(utils.approximateDivision(10, 2)).toBeLessThanOrEqual(5);
@@ -154,7 +153,6 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 4. Number matchers - toBeCloseTo
   describe("14. toBeCloseTo - Floating Point Precision", () => {
     test("PASS: approximateDivision(0.3, 0.1) is close to 3", () => {
       expect(utils.approximateDivision(0.3, 0.1)).toBeCloseTo(3);
@@ -165,7 +163,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 5. String matchers - toMatch
+
   describe("15. toMatch - Regex Pattern Matching", () => {
     test("PASS: user name matches uppercase start regex", () => {
       const user = utils.createUser("Alice", 30);
@@ -178,7 +176,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 5. String matchers - .not.toMatch
+  
   describe("16. .not.toMatch - Negated Regex Pattern", () => {
     test("PASS: string does not match goodbye pattern", () => {
       expect("hello world").not.toMatch(/^goodbye/);
@@ -189,7 +187,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 6. Arrays/Iterables - toContain (Array)
+  
   describe("17. toContain - Array Values", () => {
     test("PASS: array contains value 2", () => {
       expect([1, 2, 3, 4, 5]).toContain(2);
@@ -200,7 +198,6 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 6. Arrays/Iterables - toContain (Set)
   describe("18. toContain - Set Values", () => {
     test("PASS: Set contains value 3", () => {
       const numberSet = new Set([1, 2, 3, 4, 5]);
@@ -213,7 +210,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 6. Arrays/Iterables - .not.toContain
+
   describe("19. .not.toContain - Negated Array Values", () => {
     test("PASS: array does not contain 99", () => {
       expect([1, 2, 3, 4, 5]).not.toContain(99);
@@ -224,7 +221,7 @@ describe("Jest Matchers Test Suite", () => {
     });
   });
 
-  // 7. Exceptions - toThrow
+
   describe("20. toThrow - Exception Handling", () => {
     test("PASS: parseJSON throws with empty string", () => {
       expect(() => utils.parseJSON("")).toThrow("No JSON string provided");
