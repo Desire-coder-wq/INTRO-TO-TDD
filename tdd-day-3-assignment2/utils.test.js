@@ -109,6 +109,131 @@ describe("Jest Matchers Test Suite", () => {
       expect(utils.findInArray([1, 2, 3], 2)).toBeFalsy();
     });
   });
+
+  // 4. Number matchers - toBeGreaterThan
+  describe("10. toBeGreaterThan - Greater Than", () => {
+    test("PASS: sum(2, 3) is greater than 4", () => {
+      expect(utils.sum(2, 3)).toBeGreaterThan(4);
+    });
+
+    test("FAIL: sum(2, 3) is greater than 5", () => {
+      expect(utils.sum(2, 3)).toBeGreaterThan(5);
+    });
+  });
+
+  // 4. Number matchers - toBeGreaterThanOrEqual
+  describe("11. toBeGreaterThanOrEqual - Greater Than or Equal", () => {
+    test("PASS: sum(2, 3) is greater than or equal to 5", () => {
+      expect(utils.sum(2, 3)).toBeGreaterThanOrEqual(5);
+    });
+
+    test("FAIL: sum(2, 3) is greater than or equal to 6", () => {
+      expect(utils.sum(2, 3)).toBeGreaterThanOrEqual(6);
+    });
+  });
+
+  // 4. Number matchers - toBeLessThan
+  describe("12. toBeLessThan - Less Than", () => {
+    test("PASS: sum(1, 1) is less than 3", () => {
+      expect(utils.sum(1, 1)).toBeLessThan(3);
+    });
+
+    test("FAIL: sum(1, 1) is less than 1", () => {
+      expect(utils.sum(1, 1)).toBeLessThan(1);
+    });
+  });
+
+  // 4. Number matchers - toBeLessThanOrEqual
+  describe("13. toBeLessThanOrEqual - Less Than or Equal", () => {
+    test("PASS: approximateDivision(10, 2) is less than or equal to 5", () => {
+      expect(utils.approximateDivision(10, 2)).toBeLessThanOrEqual(5);
+    });
+
+    test("FAIL: approximateDivision(10, 2) is less than or equal to 4", () => {
+      expect(utils.approximateDivision(10, 2)).toBeLessThanOrEqual(4);
+    });
+  });
+
+  // 4. Number matchers - toBeCloseTo
+  describe("14. toBeCloseTo - Floating Point Precision", () => {
+    test("PASS: approximateDivision(0.3, 0.1) is close to 3", () => {
+      expect(utils.approximateDivision(0.3, 0.1)).toBeCloseTo(3);
+    });
+
+    test("FAIL: approximateDivision(0.3, 0.1) is close to 4", () => {
+      expect(utils.approximateDivision(0.3, 0.1)).toBeCloseTo(4);
+    });
+  });
+
+  // 5. String matchers - toMatch
+  describe("15. toMatch - Regex Pattern Matching", () => {
+    test("PASS: user name matches uppercase start regex", () => {
+      const user = utils.createUser("Alice", 30);
+      expect(user.name).toMatch(/^[A-Z]/);
+    });
+
+    test("FAIL: user name matches lowercase start regex", () => {
+      const user = utils.createUser("Alice", 30);
+      expect(user.name).toMatch(/^[a-z]/);
+    });
+  });
+
+  // 5. String matchers - .not.toMatch
+  describe("16. .not.toMatch - Negated Regex Pattern", () => {
+    test("PASS: string does not match goodbye pattern", () => {
+      expect("hello world").not.toMatch(/^goodbye/);
+    });
+
+    test("FAIL: string does not match hello pattern", () => {
+      expect("hello world").not.toMatch(/^hello/);
+    });
+  });
+
+  // 6. Arrays/Iterables - toContain (Array)
+  describe("17. toContain - Array Values", () => {
+    test("PASS: array contains value 2", () => {
+      expect([1, 2, 3, 4, 5]).toContain(2);
+    });
+
+    test("FAIL: array contains value 99", () => {
+      expect([1, 2, 3, 4, 5]).toContain(99);
+    });
+  });
+
+  // 6. Arrays/Iterables - toContain (Set)
+  describe("18. toContain - Set Values", () => {
+    test("PASS: Set contains value 3", () => {
+      const numberSet = new Set([1, 2, 3, 4, 5]);
+      expect(numberSet).toContain(3);
+    });
+
+    test("FAIL: Set contains value 10", () => {
+      const numberSet = new Set([1, 2, 3, 4, 5]);
+      expect(numberSet).toContain(10);
+    });
+  });
+
+  // 6. Arrays/Iterables - .not.toContain
+  describe("19. .not.toContain - Negated Array Values", () => {
+    test("PASS: array does not contain 99", () => {
+      expect([1, 2, 3, 4, 5]).not.toContain(99);
+    });
+
+    test("FAIL: array does not contain 2", () => {
+      expect([1, 2, 3, 4, 5]).not.toContain(2);
+    });
+  });
+
+  // 7. Exceptions - toThrow
+  describe("20. toThrow - Exception Handling", () => {
+    test("PASS: parseJSON throws with empty string", () => {
+      expect(() => utils.parseJSON("")).toThrow("No JSON string provided");
+    });
+
+    test("FAIL: parseJSON does not throw with valid JSON", () => {
+      expect(() => utils.parseJSON('{"name":"Alice"}')).toThrow();
+    });
+  });
 });
 
 
